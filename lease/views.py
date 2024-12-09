@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Index, Slider, About, Service, Properties, Property_single, Contact, Agent
+from .models import Index, Slider, About, Service, Properties, Property_single, Contact, Agent, Testimonial
 
 
 def about(request):
@@ -12,7 +12,8 @@ def index(request):
     properties_list = Properties.objects.all().prefetch_related('images')
     service = Service.objects.all()
     agent = Agent.objects.all()
-    return render(request, 'index.html', {'index': index, 'sliders': slider, 'properties_list': properties_list, 'service' : service, 'agent':agent})
+    testimonial = Testimonial.objects.all()
+    return render(request, 'index.html', {'index': index, 'sliders': slider, 'properties_list': properties_list, 'service' : service, 'agent':agent, 'testimonial' : testimonial })
     
 
 def agents(request):
@@ -33,16 +34,17 @@ def services(request):
 
 def contact(request):
     if request.method == 'POST':
-
         name = request.POST.get('name')
         email = request.POST.get('email')
         subject = request.POST.get('subject')
         message = request.POST.get('message')
-
         Contact.objects.create(name=name, email=email, subject=subject, message=message)
         return render(request, 'contact.html', {'success': True})
     return render(request, 'contact.html')
 
+def testimonial(request):
+    testimonial = Testimonial.objects.all()
+    return render(request, 'testimonial.html', {'testimonial': testimonial})
 
 
 

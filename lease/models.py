@@ -28,14 +28,7 @@ class PropertyOwner(models.Model):
      ig = models.CharField(max_length=50)
      def __str__(self):
           return self.name
-     
-# class Agent(models.Model):
-#      name = models.CharField(max_length=100, default='')
-#      image = models.ImageField(upload_to='agents/')
-#      description = models.TextField()
-#      address = models.CharField(max_length=200, default='')
-#      def __str__(self):
-#           return self.name
+
 
 class Agent(models.Model):
     name = models.CharField(max_length=100)
@@ -119,22 +112,20 @@ class About_view(models.Model):
      def __str__(self):
           return self.title
 
-# class Properties_list(models.Model):
-#      image = models.ImageField(upload_to='properties_list/')
-#      price = models.CharField(max_length=100)
-#      address =models.CharField(max_length=100)
-#      city = models.CharField(max_length=100)
-#      country = models.CharField(max_length=100)
-#      beds = models.CharField(max_length=50)
-#      baths = models.CharField(max_length=50)
-#      area = models.CharField(max_length=50)
-#      def __str__(self):
-#           return self.price
 
 class Lease_list(models.Model):
      lease = models.ForeignKey(Lease, on_delete=models.CASCADE)
      def __str__(self):
-          return self.lease.title    
+          return self.lease.title
+
+class Testimonial(models.Model) :
+     name = models.CharField(max_length=100)
+     title = models.CharField(max_length=100)
+     description = models.TextField()
+     image = models.ImageField(upload_to='testimonial/')
+     def __str__(self):
+          return self.name
+     
      
 
 
