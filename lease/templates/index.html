@@ -66,7 +66,7 @@
                   <li class="has-children">
                     <a href="{% url 'properties' %}">Properties</a>
                     <ul class="dropdown">
-                      <li><a href="#">Buy Property</a></li>
+                      <li><a href="">Buy Property</a></li>
                       <li><a href="#">Sell Property</a></li>
                       <li class="has-children">
                         <a href="#">Lease Apartment</a>
@@ -98,43 +98,8 @@
         </nav>
       </div>
     </header>
-   
 
-
-
-  <!-- <header class="site-header">
-    <div class="container">
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="{% url 'index' %}" class="active">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'services' %}">Services</a></li>
-          <li><a href="{% url 'properties' %}">Properties</a></li>
-          <li><a href="{% url 'agents' %}">Agents</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-    </div>
-  </header> -->
-    
+    <!-- Slider Section -->
 
     <div class="section">
       <div class="container">
@@ -147,11 +112,12 @@
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+
         <div class="carousel-inner">
 
           {% for slider in sliders  %}
           <div class="carousel-item {% if forloop.first %}active {% endif %}">
-            <img src="{{ slider.image.url}}" class="d-block w-100" alt="...">
+            <img src="{{ slider.image.url }}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h1>{{ slider.title}}</h1>
               <p>{{ slider.description}}</p>
@@ -161,6 +127,9 @@
           {% endfor %}
           
         </div>
+
+
+        
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -197,28 +166,30 @@
           <div class="col-12">
             <div class="property-slider-wrap">
               <div class="property-slider">
-
-
-                {% for property in properties %}
-                  <div class="property-item">
-                    <a href="{% url 'property-single' property.id %}" class="img">
-                      <img src="{{ properties_list.image.url }}" alt="..." class="img-fluid" />
+                {% for property in properties_list %}
+                  <div class="property-item" >
+                    <a href="" class="img">
+                      {% if property.images.all %}
+                      <img src="{{ property.images.first.image.url }}" alt="Property Image" class="img-fluid" />
+                    {% else %}
+                      <img src="path/to/default/image.jpg" alt="No Image Available" class="img-fluid" />
+                    {% endif %}
                     </a>
 
-                    <div class="property-content">
-                      <div class="price mb-2"><span>${{ properties_list.price }}</span></div>
+                    <div class="property-content" >
+                      <div class="price mb-2"><span>${{ property.price }}</span></div>
                       <div>
-                        <span class="d-block mb-2 text-black-50">{{ properties_list.address }}</span>
-                        <span class="city d-block mb-3">{{ properties_list.city }}, {{ properties_list.country }}</span>
+                        <span class="d-block mb-2 text-black-50">{{ property.address }}</span>
+                        <span class="city d-block mb-3">{{ property.city }}, {{ property.country }}</span>
 
                         <div class="specs d-flex mb-4">
                           <span class="d-block d-flex align-items-center me-3">
                             <span class="icon-bed me-2"></span>
-                            <span class="caption">{{ properties_list.beds }} beds</span>
+                            <span class="caption">{{ property.beds }} beds</span>
                           </span>
                           <span class="d-block d-flex align-items-center">
                             <span class="icon-bath me-2"></span>
-                            <span class="caption">{{ properties_list.baths }} baths</span>
+                            <span class="caption">{{ property.baths }} baths</span>
                           </span>
                         </div>
 
@@ -227,7 +198,6 @@
                     </div>
                   </div>
                 {% endfor %}
-
 
                 
               <div
@@ -257,56 +227,37 @@
       </div>
     </div>
 
-    <section class="features-1">
+
+    <div class="section">
       <div class="container">
-        <div class="row">
-          <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-            <div class="box-feature">
-              <span class="flaticon-house"></span>
-              <h3 class="mb-3">Our Properties</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates, accusamus.
-              </p>
-              <p><a href="#" class="learn-more">Learn More</a></p>
+        <h2 class="font-weight-bold text-primary heading">
+          Services We Offer
+        </h2>
+        <section class="feature-1">
+          <div class="container">
+            <div class="row">
+              {% for service in service %}
+              <!-- Display the image dynamically -->
+              <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                  <div class="box-feature">
+                    <span class="flaticon-house"></span>
+                      <!-- Display the title dynamically -->
+                      <h3 class="mb-3">{{ service.title }}</h3>
+                      <!-- Display the description dynamically -->
+                      <p>{{ service.description }}</p>
+                      <!-- Link to learn more about the service -->
+                      <p><a href="#" class="learn-more">Learn More</a></p>
+                  </div>
+              </div>
+          {% endfor %}
+          
             </div>
           </div>
-          <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="500">
-            <div class="box-feature">
-              <span class="flaticon-building"></span>
-              <h3 class="mb-3">Property for Sale</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates, accusamus.
-              </p>
-              <p><a href="#" class="learn-more">Learn More</a></p>
-            </div>
-          </div>
-          <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-            <div class="box-feature">
-              <span class="flaticon-house-3"></span>
-              <h3 class="mb-3">Real Estate Agent</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates, accusamus.
-              </p>
-              <p><a href="#" class="learn-more">Learn More</a></p>
-            </div>
-          </div>
-          <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
-            <div class="box-feature">
-              <span class="flaticon-house-1"></span>
-              <h3 class="mb-3">House for Sale</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates, accusamus.
-              </p>
-              <p><a href="#" class="learn-more">Learn More</a></p>
-            </div>
-          </div>
+        </section>
         </div>
       </div>
-    </section>
+    </div>
+
 
     <div class="section sec-testimonials">
       <div class="container">
@@ -319,7 +270,6 @@
           <div class="col-md-6 text-md-end">
             <div id="testimonial-nav">
               <span class="prev" data-controls="prev">Prev</span>
-
               <span class="next" data-controls="next">Next</span>
             </div>
           </div>
@@ -371,6 +321,7 @@
                   <span class="icon-star text-warning"></span>
                   <span class="icon-star text-warning"></span>
                 </div>
+                
                 <h3 class="h5 text-primary mb-4">Mike Houston</h3>
                 <blockquote>
                   <p>
@@ -564,8 +515,7 @@
               href="#"
               target="_blank"
               class="btn btn-primary text-white py-3 px-4"
-              >Apply for Real Estate agent</a
-            >
+              >Apply for Real Estate agent</a>
           </p>
         </div>
         <!-- /.col-lg-7 -->
@@ -581,115 +531,62 @@
               Our Agents
             </h2>
             <p class="text-black-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              enim pariatur similique debitis vel nisi qui reprehenderit totam?
-              Quod maiores.
+              Our expert agents are here to help you find the perfect property with personalized service and in-depth market knowledge. 
+              Browse their profiles to learn more about their experience and how they can assist you on your real estate journe
             </p>
           </div>
         </div>
         <div class="row">
+          {% for agent in agents %}
           <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
             <div class="h-100 person">
-              <img
-                src="images/person_1-min.jpg"
-                alt="Image"
-                class="img-fluid"
-              />
-
+              {% if agent.image %}
+              <img src="{{agent.image.image.url}}"  alt="Image" class="img-fluid" />
+              {% endif %}
               <div class="person-contents">
-                <h2 class="mb-0"><a href="#">James Doe</a></h2>
-                <span class="meta d-block mb-3">Real Estate Agent</span>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Facere officiis inventore cumque tenetur laboriosam, minus
-                  culpa doloremque odio, neque molestias?
-                </p>
+                <h2 class="mb-0"><a href="#">{{agent.name}}</a></h2>
+                <span class="meta d-block mb-3">{{agent.position}}</span>
+
+                <p> {{agent.description}}</p>
 
                 <ul class="social list-unstyled list-inline dark-hover">
+
+
+                  {% if agent.twitter %}
                   <li class="list-inline-item">
-                    <a href="#"><span class="icon-twitter"></span></a>
+                    <a href="#">{{ agent.twitter }}<span class="icon-twitter"></span></a>
                   </li>
+                  {% endif %}
+
+
+                  {% if agent.facebook %}
                   <li class="list-inline-item">
-                    <a href="#"><span class="icon-facebook"></span></a>
+                    <a href="#">{{ agent.facebook}}<span class="icon-facebook"></span></a>
                   </li>
+                  {% endif %}
+
+
+                  {% if agent.linkedin %}
                   <li class="list-inline-item">
-                    <a href="#"><span class="icon-linkedin"></span></a>
+                    <a href="#">{{ agent.linkedin }}<span class="icon-linkedin"></span></a>
                   </li>
+                  {% endif %}
+
+
+                  {% if agent.instagram %}
                   <li class="list-inline-item">
                     <a href="#"><span class="icon-instagram"></span></a>
                   </li>
+                  {% endif %}
+
+
                 </ul>
               </div>
             </div>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="h-100 person">
-              <img
-                src="images/person_2-min.jpg"
-                alt="Image"
-                class="img-fluid"
-              />
-
-              <div class="person-contents">
-                <h2 class="mb-0"><a href="#">Jean Smith</a></h2>
-                <span class="meta d-block mb-3">Real Estate Agent</span>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Facere officiis inventore cumque tenetur laboriosam, minus
-                  culpa doloremque odio, neque molestias?
-                </p>
-
-                <ul class="social list-unstyled list-inline dark-hover">
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-twitter"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-facebook"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-linkedin"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-instagram"></span></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          {% endfor %}
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-            <div class="h-100 person">
-              <img
-                src="images/person_3-min.jpg"
-                alt="Image"
-                class="img-fluid"
-              />
-
-              <div class="person-contents">
-                <h2 class="mb-0"><a href="#">Alicia Huston</a></h2>
-                <span class="meta d-block mb-3">Real Estate Agent</span>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Facere officiis inventore cumque tenetur laboriosam, minus
-                  culpa doloremque odio, neque molestias?
-                </p>
-
-                <ul class="social list-unstyled list-inline dark-hover">
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-twitter"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-facebook"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-linkedin"></span></a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#"><span class="icon-instagram"></span></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -700,12 +597,12 @@
           <div class="col-lg-4">
             <div class="widget">
               <h3>Contact</h3>
-              <address>43 Raymouth Rd. Baltemoer, London 3910</address>
+              <address>90400 - 80100 , Mombasa </address>
               <ul class="list-unstyled links">
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
-                <li><a href="tel://11234567890">+1(123)-456-7890</a></li>
+                <li><a href="tel://11234567890">+254 719-885-775</a></li>
+                <li><a href="tel://11234567890">+254 719-885-775</a></li>
                 <li>
-                  <a href="mailto:info@mydomain.com">info@mydomain.com</a>
+                  <a href="mailto:info@mydomain.com">inf@SmartLease.com</a>
                 </li>
               </ul>
             </div>

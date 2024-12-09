@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
     <title>
-      Property &mdash; Free Bootstrap 5 Website Template by Untree.co
+      About SmartLease
     </title>
   </head>
   <body>
@@ -44,14 +44,14 @@
       <div class="container">
         <div class="menu-bg-wrap">
           <div class="site-navigation">
-            <a href="{% static 'index' %}" class="logo m-0 float-start">Property</a>
+            <a href="{% url 'index' %}" class="logo m-0 float-start">Property</a>
 
             <ul
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
-              <li><a href="{% static 'index' %}">Home</a></li>
+              <li><a href="{% url 'index' %}">Home</a></li>
               <li class="has-children">
-                <a href="{% static 'properties' %}">Properties</a>
+                <a href="{% url 'properties' %}">Properties</a>
                 <ul class="dropdown">
                   <li><a href="#">Buy Property</a></li>
                   <li><a href="#">Sell Property</a></li>
@@ -65,9 +65,10 @@
                   </li>
                 </ul>
               </li>
-              <li><a href="{% static 'services' %}">Services</a></li>
-              <li class="active"><a href="{% static 'about' %}">About</a></li>
-              <li><a href="{% static 'contact' %}">Contact Us</a></li>
+              <li><a href="{% url 'services' %}">Services</a></li>
+              <li class="active"><a href="{%  url 'about' %}">About</a></li>
+              <li><a href="{% url 'agents' %}">Agents</a></li>
+              <li><a href="{% url 'contact' %}">Contact Us</a></li>
             </ul>
 
             <a
@@ -98,11 +99,10 @@
               data-aos-delay="200"
             >
               <ol class="breadcrumb text-center justify-content-center">
-                <li class="breadcrumb-item"><a href="{% static 'index' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
                 <li
                   class="breadcrumb-item active text-white-50"
-                  aria-current="page"
-                >
+                  aria-current="page">
                   About
                 </li>
               </ol>
@@ -120,35 +120,25 @@
           </div>
           <div class="col-lg-6">
             <p class="text-black-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              enim pariatur similique debitis vel nisi qui reprehenderit totam?
-              Quod maiores.
+              At Smartlease, we are committed to transforming the way businesses and individuals manage their leasing needs. As a leading provider in the leasing industry, we specialize in offering flexible, innovative, and cost-effective leasing solutions designed to meet the evolving demands of today’s marketplace.
             </p>
             <p class="text-black-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-              saepe, explicabo nihil. Est, autem error cumque ipsum repellendus
-              veniam sed blanditiis unde ullam maxime veritatis perferendis
-              cupiditate, at non esse!
+              With a customer-centric approach, Smartlease delivers a seamless leasing experience tailored to your unique needs. Whether you're looking for equipment leasing, vehicle leasing, or property leasing, we offer a wide range of options backed by exceptional customer service. Our solutions are designed to streamline your processes, reduce operational costs, and help you make smarter financial decisions.
             </p>
             <p class="text-black-50">
-              Enim, nisi labore exercitationem facere cupiditate nobis quod
-              autem veritatis quis minima expedita. Cumque odio illo iusto
-              reiciendis, labore impedit omnis, nihil aut atque, facilis
-              necessitatibus asperiores porro qui nam.
+              Our team of experts brings years of experience and industry knowledge to every lease, ensuring that we provide practical, reliable, and transparent solutions. At Smartlease, we pride ourselves on understanding the complexities of the leasing world and delivering solutions that help you succeed, grow, and reach your goals.
             </p>
           </div>
           <div class="col-lg-6">
+            <h2>Our Core Values</h2>
+    
+            <ol>
+                <li>Integrity: We believe in honest, transparent, and ethical dealings with our clients and partners.</li>
+                <li>Integrity: We believe in honest, transparent, and ethical dealings with our clients and partners.</li>
+                <li>Customer Focus: We listen, understand, and work hard to deliver exceptional service and value to our customers.</li>
+            </ol>
             <p class="text-black-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-              saepe, explicabo nihil. Est, autem error cumque ipsum repellendus
-              veniam sed blanditiis unde ullam maxime veritatis perferendis
-              cupiditate, at non esse!
-            </p>
-            <p class="text-black-50">
-              Enim, nisi labore exercitationem facere cupiditate nobis quod
-              autem veritatis quis minima expedita. Cumque odio illo iusto
-              reiciendis, labore impedit omnis, nihil aut atque, facilis
-              necessitatibus asperiores porro qui nam.
+              Customer Focus: We listen, understand, and work hard to deliver exceptional service and value to our customers.
             </p>
           </div>
         </div>

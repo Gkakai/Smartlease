@@ -1,6 +1,6 @@
+
+
 {% load static %}
-
-
 
 <html lang="en">
   <head>
@@ -19,12 +19,12 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css" />
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}" />
 
-    <link rel="stylesheet" href="css/tiny-slider.css" />
-    <link rel="stylesheet" href="css/aos.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{% static '/tiny-slider.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
     <title>
       SmartLease Services
@@ -51,7 +51,7 @@
             >
               <li><a href="{% url 'index' %}">Home</a></li>
               <li class="has-children">
-                <a href="propeurl 'rties' %}">Properties</a>
+                <a href="{% url 'properties' %}">Properties</a>
                 <ul class="dropdown">
                   <li><a href="#">Buy Property</a></li>
                   <li><a href="#">Sell Property</a></li>
@@ -65,9 +65,10 @@
                   </li>
                 </ul>
               </li>
-              <li class="active"><a href="serurl 'vices' %}">Services</a></li>
-              <li><a href="url 'about' %}">About</a></li>
-              <li><a href="courl 'ntact' %}">Contact Us</a></li>
+              <li class="active"><a href="{% url 'services' %}">Services</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{%url 'agents' %}">Agents</a></li>
+              <li><a href="{% url 'contact' %}">Contact Us</a></li>
             </ul>
 
             <a
@@ -98,7 +99,7 @@
               data-aos-delay="200"
             >
               <ol class="breadcrumb text-center justify-content-center">
-                <li class="breadcrumb-item"><a href="url 'index' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
                 <li
                   class="breadcrumb-item active text-white-50"
                   aria-current="page"
@@ -463,12 +464,12 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script>
+    <!-- End Preloader -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/tiny-slider.js' %}"></script>
+    <script src="{% static 'js/aos.js' %}"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/counter.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
   </body>
 </html>

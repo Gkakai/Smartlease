@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
     <title>
-      Property &mdash; Free Bootstrap 5 Website Template by Untree.co
+      SmartLease Property-single 
     </title>
   </head>
   <body>
@@ -72,7 +72,8 @@
                 </ul>
               </li>
               <li><a href="{% url 'services' %}">Services</a></li>
-              <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="">Blog</a></li>
               <li class="active"><a href="{% url 'contact' %}">Contact Us</a></li>
             </ul>
 
@@ -97,7 +98,7 @@
         <div class="row justify-content-center align-items-center">
           <div class="col-lg-9 text-center mt-5">
             <h1 class="heading" data-aos="fade-up">
-              5232 California AVE. 21BC
+              {{ property.name }}
             </h1>
 
             <nav
@@ -114,7 +115,7 @@
                   class="breadcrumb-item active text-white-50"
                   aria-current="page"
                 >
-                  5232 California AVE. 21BC
+                  {{ property.name }}
                 </li>
               </ol>
             </nav>
@@ -129,41 +130,43 @@
           <div class="col-lg-7">
             <div class="img-property-slide-wrap">
               <div class="img-property-slide">
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
+                {% if property.images.all %}
+                  {% for image in property.images.all %}
+                    <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" class="img-fluid" />
+                  {% endfor %}
+                {% endif %}
+                <!-- <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
                 <img src="images/img_2.jpg" alt="Image" class="img-fluid" />
-                <img src="images/img_3.jpg" alt="Image" class="img-fluid" />
+                <img src="images/img_3.jpg" alt="Image" class="img-fluid" /> -->
               </div>
             </div>
           </div>
           <div class="col-lg-4">
-            <h2 class="heading text-primary">5232 California Ave. 21BC</h2>
-            <p class="meta">California, United States</p>
+            <h2 class="heading text-primary">{{ property.name }}</h2>
+            <p class="meta">{{ property.address}}</p>
             <p class="text-black-50">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione
-              laborum quo quos omnis sed magnam id, ducimus saepe, debitis error
-              earum, iste dicta odio est sint dolorem magni animi tenetur.
+              {{ property.description}}
             </p>
-            <p class="text-black-50">
+            <!-- <p class="text-black-50">
               Perferendis eligendi reprehenderit, assumenda molestias nisi eius
               iste reiciendis porro tenetur in, repudiandae amet libero.
               Doloremque, reprehenderit cupiditate error laudantium qui, esse
               quam debitis, eum cumque perferendis, illum harum expedita.
-            </p>
+            </p> -->
 
             <div class="d-block agent-box p-5">
               <div class="img mb-4">
                 <img
-                  src="images/person_2-min.jpg"
+                  src="{{ property.owner.image.url }}"
                   alt="Image"
                   class="img-fluid"
                 />
               </div>
               <div class="text">
-                <h3 class="mb-0">Alicia Huston</h3>
-                <div class="meta mb-3">Real Estate</div>
+                <h3 class="mb-0">{{ property.owner.name }}</h3>
+                <div class="meta mb-3">{{ property.owner.owner_type }}</div>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ratione laborum quo quos omnis sed magnam id ducimus saepe
+                 {{ property.owner.description }}
                 </p>
                 <ul class="list-unstyled social dark-hover d-flex">
                   <li class="me-1">

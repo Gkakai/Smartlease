@@ -46,14 +46,14 @@
       <div class="container">
         <div class="menu-bg-wrap">
           <div class="site-navigation">
-            <a href="{% urls 'index' %}" class="logo m-0 float-start">Property</a>
+            <a href="{% url 'index' %}" class="logo m-0 float-start">Property</a>
 
             <ul
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
-              <li><a href="{% urls 'index' %}">Home</a></li>
+              <li><a href="{% url 'index' %}">Home</a></li>
               <li class="has-children">
-                <a href="{% urls 'properties' %}">Properties</a>
+                <a href="{% url 'properties' %}">Properties</a>
                 <ul class="dropdown">
                   <li><a href="#">Buy Property</a></li>
                   <li><a href="#">Sell Property</a></li>
@@ -67,9 +67,10 @@
                   </li>
                 </ul>
               </li>
-              <li><a href="{% urls 'services' %}">Services</a></li>
-              <li><a href="{% urls 'about' %}">About</a></li>
-              <li class="active"><a href="{% urls 'contact' %}">Contact Us</a></li>
+              <li><a href="{% url 'services' %}">Services</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'agents' %}">Agents</a></li>
+              <li class="active"><a href="{% url 'contact' %}">Contact Us</a></li>
             </ul>
 
             <a
@@ -100,7 +101,7 @@
               data-aos-delay="200"
             >
               <ol class="breadcrumb text-center justify-content-center">
-                <li class="breadcrumb-item"><a href="{% urls 'index' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
                 <li
                   class="breadcrumb-item active text-white-50"
                   aria-current="page"
@@ -283,12 +284,7 @@
 
         <div class="row mt-5">
           <div class="col-12 text-center">
-            <!-- 
-              **==========
-              NOTE: 
-              Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
-              **==========
-            -->
+          
 
             <p>
               Copyright &copy;
@@ -296,12 +292,12 @@
                 document.write(new Date().getFullYear());
               </script>
               . All Rights Reserved. &mdash; Designed with love by
-              <a href="https://untree.co">Untree.co</a>
-              <!-- License information: https://untree.co/license/ -->
+              <a href="#">SmartLease.com</a>
+              
             </p>
             <div>
               Distributed by
-              <a href="https://themewagon.com/" target="_blank">themewagon</a>
+              <a href="#" target="_blank">SmartLease</a>
             </div>
           </div>
         </div>
